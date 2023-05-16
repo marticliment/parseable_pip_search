@@ -1,4 +1,4 @@
-# pip_search
+# parseable_pip_search
 
 __Wrapping the needs of a "pip search" command necessity through PyPi.org__
 
