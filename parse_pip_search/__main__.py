@@ -5,7 +5,7 @@ from urllib.parse import urlencode
 from rich.console import Console
 from rich.table import Table
 
-from pip_search.pip_search import config, search
+from parse_pip_search.parse_pip_search import config, search
 
 from . import __version__
 from .utils import check_version
@@ -49,35 +49,12 @@ def main():
     if not args.query:
         ap.print_help()
         sys.exit(1)
+        
+    print(" Package | Version | Description ")
+    print("---------------------------------")
 
-    table = Table(
-        title=(
-            "[not italic]:snake:[/] [bold][magenta]"
-            f"{config.api_url}?{urlencode({'q': query})}"
-            "[/] [not italic]:snake:[/]"
-        )
-    )
-    table.add_column("Package", style="cyan", no_wrap=True)
-    table.add_column("Version", style="bold yellow")
-    table.add_column("Released", style="bold green")
-    table.add_column("Description", style="bold blue")
-    emoji = ":open_file_folder:"
-    for package in result:
-        checked_version = check_version(package.name)
-        if checked_version == package.version:
-            package.version = f"[bold cyan]{package.version} ==[/]"
-        elif checked_version is not False:
-            package.version = (
-                f"{package.version} > [bold purple]{checked_version}[/]"
-            )
-        table.add_row(
-            f"[link={package.link}]{emoji}[/link] {package.name}",
-            package.version,
-            package.released_date_str(args.date_format),
-            package.description,
-        )
-    console = Console()
-    console.print(table)
+    for package in result:            
+        print(package.name+"|"+package.version+"|"+package.description.replace("\n", ""))
 
 
 if __name__ == "__main__":
