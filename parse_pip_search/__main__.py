@@ -1,6 +1,7 @@
 import argparse
 import sys
 from urllib.parse import urlencode
+import asyncio
 
 from rich.console import Console
 from rich.table import Table
@@ -10,8 +11,7 @@ from parse_pip_search.parse_pip_search import config, search
 from . import __version__
 from .utils import check_version
 
-
-def main():
+async def mymain():
     ap = argparse.ArgumentParser(
         prog="pip_search", description="Search for packages on PyPI"
     )
@@ -43,6 +43,7 @@ def main():
         nargs="?",
         help="format for release date, (default: %(default)s)",
     )
+
     args = ap.parse_args()
     query = " ".join(args.query)
     result = search(query, opts=args)
@@ -53,9 +54,11 @@ def main():
     print(" Package | Version | Description ")
     print("---------------------------------")
 
-    for package in result:            
+    async for package in result:
         print(package.name+"|"+package.version+"|"+package.description.replace("\n", ""))
 
+def main():
+    asyncio.run(mymain())
 
 if __name__ == "__main__":
     sys.exit(main())
