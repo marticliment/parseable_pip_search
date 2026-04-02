@@ -62,8 +62,7 @@ C:\Users\user>
 ```
 
 ## Dependencies
-* bs4
 * rich
-* requests
+* httpx
 
 ## Based on [@victorgarric](https://github.com/victorgarric)'s awesome [pip_search](https://github.com/victorgarric/pip_search) utility

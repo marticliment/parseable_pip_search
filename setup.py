@@ -10,7 +10,7 @@ README = (HERE / "README.md").read_text()
 
 setup(
     name="parse_pip_search",
-    version="0.0.1",
+    version="0.0.2",
     author="Martí Climent",
     author_email="marticlilop@gmail.com",
     url="https://github.com/marticliment/parseable_pip_search",
