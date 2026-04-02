@@ -6,7 +6,7 @@ from setuptools import find_packages, setup
 HERE = pathlib.Path(__file__).parent
 
 # The text of the README file
-README = (HERE / "README.md").read_text()
+README = "Wrapping the needs of a \"pip search\" command necessity through PyPi.org, on a command-line parseable output"#(HERE / "README.md").read_text()
 
 setup(
     name="parse_pip_search",
@@ -18,7 +18,7 @@ setup(
     long_description=README,
     long_description_content_type="text/markdown",
     packages=find_packages(exclude=("tests",)),
-    install_requires=["bs4", "requests", "rich"],
+    install_requires=["httpx", "rich"],
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",

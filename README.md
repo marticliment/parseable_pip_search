@@ -55,7 +55,7 @@ win10toast|0.9|An easy-to-use Python library for displaying Windows 10 Toast Not
 sdpc-win|3.0|a library for sdpcPY (windows version)
 ffmpeg-win64|0.0.2|add ffmpeg 64bit exe builds to os.environ['PATH'] ref: https://ffmpeg.org/download.html
 win10batteryoptimizer|0.1.1|An easy-to-use Python library for maintaing the optimal battery life for windows 10
-trainer4win|0.0.7|General purpose model trainer for PyTorch that is more flexible than it should be, by 🐸Coqui.
+trainer4win|0.0.7|General purpose model trainer for PyTorch that is more flexible than it should be, by Coqui.
 win10ctypestoast|0.10|Windows-10-Toast-Notifications without pywin32 dependency
 
 C:\Users\user>
